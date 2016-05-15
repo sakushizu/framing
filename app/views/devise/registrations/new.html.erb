@@ -21,6 +21,13 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <div class="label"><%= f.label :username %><br />
+    <%= f.text_field :username, autofocus: true, :placeholder => '名前を入力(必須）' %></div>
+
+  <div class="label"><%= f.label :image %><br />
+    <%= f.file_field :image %></div>
+
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
