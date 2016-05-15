@@ -1,0 +1,26 @@
+<% if user_signed_in? %>
+サインインしてるよ！
+  <% if post.favorite_user(current_user.id) %>
+    <%= button_to post_favorite_path(post.favorite_user(current_user.id), post_id: post.id), method: :delete, remote: true do %>
+      <%= image_tag("icon_heart_red.svg") %>
+      <span>
+      a
+        <%= post.favorites_count %>
+      </span>
+    <% end %>
+  <% else %>
+    <%= button_to post_favorites_path(post_id: post.id), method: :post, remote: true do %>
+      <%= image_tag("icon_heart.svg") %>
+      <span>
+      cas
+        <%= post.favorites_count %>
+      </span>
+    <% end %>
+  <% end %>
+<% else %>
+サインインしてないよ
+  <%= image_tag("icon_heart.svg") %>
+    <span>
+      <%= post.favorites_count %>
+    </span>
+<% end %>
