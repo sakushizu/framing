@@ -1,0 +1,11 @@
+facebook:
+  app_id: '1699074863676472'
+  app_secret: '2893dc03dfff4c587042298781bce8db'
+
+twitter:
+  app_id: 'AQB73pg5KctWAsPoksfoULgaG'
+  app_secret: 'gE7CW2K6cm3CYMlyc1FAvT8yQ2nShYpWbHAzqLjHQSkeHAIAuC'
+
+aws:
+  access_key_id: 'AKIAILAS2YWCDHOLFWGQ'
+  secret_access_key: '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'
