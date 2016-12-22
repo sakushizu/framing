@@ -1,0 +1,35 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Framing
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    %link{:href => "https://fonts.googleapis.com/css?family=Roboto:400,300,100'", :rel => "stylesheet", :type => "text/css"}
+    = csrf_meta_tags
+  %body.clearfix
+    %header
+      %nav
+      .sidebar01
+        = link_to root_path do
+          = image_tag("site-logo.png")
+      .sidebar02
+        - if user_signed_in?
+          %ul
+            %li.list-style
+              = link_to 'new', new_post_path
+            %li.list-style
+              = form_tag(:search_posts, method: :get) do
+                .form-group
+                  %input.form-control.col-sm-8.form-border{name: "keyword", placeholder: "Search", type: "text"}
+
+            %li.list-style
+              = link_to 'mypage', user_path(current_user)
+        - else
+          %ul
+            %li.list-style
+              = link_to 'sign up', new_user_registration_path
+            %li.list-style
+              = link_to 'login', new_user_session_path
+    .maincontents
+      = yield

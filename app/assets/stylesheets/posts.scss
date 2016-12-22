@@ -1,3 +1,194 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "_variables.scss";
+
+
+.post-wrapper {
+  height: 100vh;
+}
+
+.left-content {
+  height: 100%;
+  min-width:400px;
+  width: 40%;
+  float: left;
+  padding: 40px 60px 0 60px;
+}
+
+.right-content {
+  height: 100vh;
+  width: 60%;
+  float: right;
+}
+
+.show-post-image {
+  float: right;
+  height: 100%;
+}
+
+.post-title {
+  margin: 0 0 5px 0px;
+  color: $title-color;
+}
+
+#favorite-button {
+  display: inline;
+  margin-left: 50px;
+
+  .link-to {
+    display: inline;
+  }
+
+  .fav-count {
+    font-size: 14px;
+    margin-left: 5px;
+    color: $gray-text-color;
+  }
+}
+
+.heart-image {
+  width: 25px
+}
+
+.username {
+  color: $gray-text-color;
+}
+
+.description {
+  margin-top: 35px;
+  color: $text-color;
+  word-break: keep-all;
+  font-size: 14px;
+}
+
+.tag {
+  margin-top: 15px;
+}
+
+.gray-small-text {
+  color: $gray-text-color;
+  font-size: 12px;
+}
+
+.comment-title {
+  margin-top: 40px;
+  color: $title-color;
+}
+
+.comments-box {
+  overflow: scroll;
+  width: 100%;
+  height: 200px;
+
+  #comment-list {
+    padding-left: 0px;
+    list-style: none;
+    word-break: keep-all;
+  }
+}
+
+.comment-text {
+  margin-top: 14px;
+  font-size: 14px;
+  color: $text-color;
+}
+
+.comment-username {
+  margin-top: 5px;
+}
+
+.search-box {
+  margin-top: 20px;
+}
+
+.more {
+  position: absolute;
+  cursor: pointer;
+  top: 20px;
+  right: 30px;
+  z-index: 2;
+  height: 100px;
+  width: 80px;
+  text-align: right;
+
+  &:hover ul.more_list {
+    display: block;
+  }
+
+  ul.more_list {
+    position: absolute;
+    padding: 0px;
+    text-align: center;
+    width: 80px;
+    right: 0;
+    list-style: none;
+    font-size: 12px;
+    background-color: rgba(255, 255, 255, 0.6);
+    display: none;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+
+    li {
+      border-bottom: 1px solid #ddd;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      a {
+        display: block;
+        padding: 5px;
+
+        &:hover {
+          color: $text-color;
+        }
+      }
+    }
+  }
+}
+
+.post-upload {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #fff;
+  background-size: cover;
+}
+
+.post-object {
+  width: 100%;
+  height: 100%;
+}
+
+.new-post {
+  height: 100%;
+}
+
+.btn-post-file {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  padding: 0;
+
+  label {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    right: 0;
+    padding: 10px;
+
+    background-color: rgba(255, 255, 255, .3);
+  }
+
+  input[type=file] {
+    width: 100%;
+    height: 100%;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    cursor: inherit;
+    display: block;
+  }
+}

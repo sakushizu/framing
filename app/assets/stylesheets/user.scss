@@ -1,3 +1,81 @@
 // Place all the styles related to the user controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "_variables.scss";
+
+.top-content {
+  height: 190px;
+}
+
+.user-show-image {
+  height: 90%;
+  border-radius: 90%;
+  -webkit-border-radius: 90%;
+  -moz-border-radius: 90%;
+}
+
+.user-show-left {
+  width: 20%;
+  padding: 50px 40px 0 90px;
+}
+
+.user-show-right {
+  height: 100%;
+  width: 50%;
+  float: left;
+  padding: 70px 0 0 50px;
+}
+
+
+.text-inline {
+  display: inline;
+}
+
+.user-name {
+  font-size: 20px ;
+  color: $title-color;
+}
+
+.user-profile {
+  margin-top: 3%;
+  font-size: 14px;
+  color: $gray-text-color;
+}
+
+.post-list {
+  list-style: none;
+  padding-top: 20px;
+  padding-left: 0px;
+
+  li {
+    display: inline-block;
+    margin-right: 30px;
+  }
+
+  #camera, #heart {
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 25px;
+    height: 25px;
+  }
+
+  li {
+    #camera {
+      background-image: url(/images/camera-fray.png);
+    }
+
+    #heart {
+      background-image: url(/images/heart.png);
+    }
+  }
+
+  li.selected {
+    #camera {
+      background-image: url(/images/camera-darkgray.png);
+    }
+
+    #heart {
+      background-image: url(/images/heart-darkgray.png);
+    }
+  }
+}

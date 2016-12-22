@@ -1,14 +1,13 @@
 class User < ActiveRecord::Base
 
+  has_many :posts, dependent: :destroy
   has_many :favorites
-  has_many :posts
+  has_many :favorited_posts, through: :favorites, source: :post
   has_many :comments
 
   mount_uploader :image, ImageUploader
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :lockable, :timeoutable, :omniauthable, omniauth_providers: [:twitter, :facebook]
 
@@ -43,9 +42,9 @@ devise :database_authenticatable, :registerable,
     user
   end
 
-private
+  private
+
   def self.dummy_email(auth)
     "#{auth.uid}-#{auth.provider}@example.com"
   end
-
 end

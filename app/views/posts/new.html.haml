@@ -1,0 +1,36 @@
+- @post.errors.full_messages.each do |message|
+  %p= message
+
+.post-wrapper.clearfix
+  = form_for(@post, :html => { :multipart => true }) do |f|
+    .left-content
+      %h2 Post
+      .form-group.label-floating
+        = f.label :title, class: "control-label"
+        = f.text_field :title, class: "form-control", id: "i5i"
+
+      .form-group.label-floating
+        = f.label :description, class: "control-label"
+        = f.text_area :description, class: "form-control", id: "i5i"
+
+      .form-group.label-floating
+        = f.label :tag, class: "control-label"
+        = text_field_tag 'post[label_list]', @post.label_list.join(','),"data-role": "tagsinput", class: "form-control", id: "i5i"
+
+      .form-group
+        = f.submit 'send', class: "btn btn-primary"
+
+    .right-content
+      .post-upload
+        %img#user_avatar.post-object{ "data-holder-rendered": "true", "data-src": "holder.js/64x64", src: "", style: "display:none;"}
+        .btn.btn-primary.btn-post-file
+          = f.label 'image upload'
+          = f.file_field :image, id: "upload_avatar"
+
+:javascript
+  $(function(){
+    var user_avatar = $("#upload_avatar");
+    user_avatar.change(function(){
+      upload_image_user(this)
+    });
+  });
