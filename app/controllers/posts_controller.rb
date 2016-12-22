@@ -3,6 +3,12 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.order(created_at: :desc)
+    current_datetime =  Time.zone.parse(params[:date]) if params[:date].present?
+    @new_posts = Post.where('created_at > ?', current_datetime)
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render json: @new_posts }
+    end
   end
 
   def show
@@ -14,10 +20,11 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    unless @post.save
-      redirect_to :new, alert: @message.errors.full_messages.join(', ')
+    if @post.save
+      redirect_to root_path, success: "Successfully create your post."
+    else
+      redirect_to new_post_path, alert: @post.errors.full_messages.join(', ')
     end
-    redirect_to root_path, success: "Successfully create your post."
   end
 
   def search
@@ -29,10 +36,11 @@ class PostsController < ApplicationController
   end
 
   def update
-    unless @post.update(post_params)
+    if @post.update(post_params)
+      redirect_to root_path, success: "Successfully updated your post."
+    else
       redirect_to :edit, alert: @message.errors.full_messages.join(', ')
     end
-    redirect_to root_path, success: "Successfully updated your post."
   end
 
   def destroy
