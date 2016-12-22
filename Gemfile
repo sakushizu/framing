@@ -26,17 +26,11 @@ group :development, :test do
   gem "factory_girl_rails", "~> 4.4.1"
   gem 'rb-fsevent', group: :darwin
   gem 'guard-livereload'
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
   gem 'byebug'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
 end
 
 group :development do
@@ -59,5 +53,9 @@ group :development do
   gem 'quiet_assets'
   gem 'multi-database-migrations'
   gem "faker", "~> 1.4.3"
+end
+
+group :production, :staging do
+  gem 'unicorn'
 end
 
