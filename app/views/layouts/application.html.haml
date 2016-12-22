@@ -22,7 +22,6 @@
               = form_tag(:search_posts, method: :get) do
                 .form-group
                   %input.form-control.col-sm-8.form-border{name: "keyword", placeholder: "Search", type: "text"}
-
             %li.list-style
               = link_to 'mypage', user_path(current_user)
         - else
@@ -32,4 +31,8 @@
             %li.list-style
               = link_to 'login', new_user_session_path
     .maincontents
+      - flash.each do |key, value|
+        - key = "info" if key == "notice"
+        - key = "danger"  if key == "alert"
+        = content_tag :div, value, class: "alert alert-#{key}"
       = yield

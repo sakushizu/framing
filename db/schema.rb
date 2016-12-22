@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160515075137) do
+ActiveRecord::Schema.define(version: 20160515034449) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "text",       limit: 65535
@@ -80,9 +80,14 @@ ActiveRecord::Schema.define(version: 20160515075137) do
     t.datetime "updated_at",                                        null: false
     t.string   "provider",               limit: 255
     t.string   "uid",                    limit: 255
+<<<<<<< Updated upstream
     t.string   "username",               limit: 255
     t.string   "image",                  limit: 255
     t.text     "profile",                limit: 65535
+=======
+    t.string   "username",               limit: 255, default: "user"
+    t.string   "image",                  limit: 255
+>>>>>>> Stashed changes
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
