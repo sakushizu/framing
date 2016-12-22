@@ -15,9 +15,9 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     unless @post.save
-      render :new and return
+      redirect_to :new, alert: @message.errors.full_messages.join(', ')
     end
-    redirect_to action: :index
+    redirect_to root_path, success: "Successfully create your post."
   end
 
   def search
@@ -29,22 +29,17 @@ class PostsController < ApplicationController
   end
 
   def update
-    unless @post.user_id == current_user.id
-      redirect_to :show and return
-    end
-
     unless @post.update(post_params)
-      render :edit and return
+      redirect_to :edit, alert: @message.errors.full_messages.join(', ')
     end
-
-    redirect_to action: :show
+    redirect_to root_path, success: "Successfully updated your post."
   end
 
   def destroy
     if @post.user_id == current_user.id
       @post.destroy
     end
-    redirect_to action: :index
+    redirect_to root_path, success: "Successfully destroy your post."
   end
 
   private
