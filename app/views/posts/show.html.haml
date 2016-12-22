@@ -18,7 +18,7 @@
         %ul#comment-list
           = render @post.comments
     .search-box
-      = form_for [@post, Comment.new], remote: true do |f|
+      = form_for [@post, Comment.new], html: { class: 'js-form' } do |f|
         = f.text_field :text, id: 'comment-text', class: 'form-control', placeholder: "Write a Comment"
   .right-content
     = image_tag @post.image, class: "show-post-image"
