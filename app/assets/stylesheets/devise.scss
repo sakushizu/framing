@@ -1,0 +1,65 @@
+.sign-up-wrapper {
+  min-width: 500px;
+}
+
+.user-image {
+  margin-left: 70px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  background-color: #fff;
+  background-size: cover;
+
+  button {
+    font-size: 9px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: 0;
+    display: block;
+    padding: 3px;
+    min-width: 75px;
+    text-transform: capitalize;
+  }
+}
+
+.btn-file {
+  position: absolute;
+  left: -5px;
+  bottom:0;
+  right: -5px;
+  text-align: center;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  background: red;
+  cursor: inherit;
+  display: block;
+}
+
+input[readonly] {
+  background-color: white !important;
+  cursor: text !important;
+}
+
+.post-images-button {
+  float: right;
+}
+
+.media-object {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}

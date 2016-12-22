@@ -1,0 +1,6 @@
+.post-box-wrapper
+  = link_to post_path(post) do
+    .post-box
+      = image_tag post.image.thumb.url, class: 'post-image'
+    .cover-box.japanese-font{style: "font-weight: 300"}
+      = post.title

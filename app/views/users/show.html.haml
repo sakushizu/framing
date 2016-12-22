@@ -1,0 +1,19 @@
+.top-content.clearfix
+  .left-content.user-show-left
+    = image_tag current_user.image, class: "user-show-image"
+  .user-show-right
+    .user-name
+      = link_to current_user.username, edit_user_path(current_user), method: :get
+      .user-profile
+        = current_user.profile
+      %ul.post-list
+        %li#left.selected
+          #camera
+        %li#right
+          #heart
+.box-wrapper.clearfix
+  .contents
+    .left.clearfix.post-container
+      = render partial: '/posts/post', collection: current_user.posts
+    .right.clearfix.post-container{ style: "display:none;"}
+      = render partial: '/posts/post', collection: current_user.favorited_posts

@@ -1,0 +1,139 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjapanese.css);
+@import "_variables.scss";
+
+.clearfix:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+* {
+  outline: none;
+}
+
+h1, h2, h3, h4, h5 {
+font-family: 'Roboto', serif;
+letter-spacing: 1px;
+}
+
+a {
+  text-decoration: none !important;
+  font-family: 'Noto Sans Japanese', sans-serif;
+  color: #4A4A4A;
+  letter-spacing: 1px;
+
+  &:hover {
+    color: #4A4A4A;
+    opacity: 0.85;
+  }
+}
+
+.japanese-font {
+  letter-spacing: 1px;
+  font-family: 'Noto Sans Japanese', sans-serif;
+  font-weight: 100;
+  font-size: 10px;
+}
+
+.label-text {
+  letter-spacing: 1.5px;
+  font-family: 'Roboto', serif;
+  font-weight: 100 !important;
+  font-size: 12px !important;
+}
+
+.form-border {
+  width: 50%;
+}
+
+header {
+  position: fixed;
+  float: left;
+  width: 240px;
+  height: 100%;
+  padding: 40px 0 0 40px;
+  background-color: #F9F9F9;
+
+  .sidebar01 {
+    height: 411px;
+    padding: 0 0 38px -9px;
+  }
+
+  .sidebar02 {
+    width: 240px;
+
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+
+    li {
+      list-style: none;
+    }
+  }
+}
+
+.maincontents {
+  min-height: 100vh;
+  float: right;
+  width: 100%;
+  padding-left: 240px;
+  background-color: #F0F0EE;
+}
+
+.box-wrapper {
+  height: 100%;
+}
+
+.post-image {
+  width: 100%;
+  height: auto;
+}
+
+.post-box-wrapper {
+  position: relative;
+  float: left;
+  width: 25%;
+  border-bottom: 1px solid #F9F9F9;
+  border-left: 1px solid #F9F9F9;
+  background-color: #F0F0EE;
+
+  .post-box {
+    margin: 40px;
+    height: 100%;
+  }
+
+  .cover-box {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40%;
+    margin: auto;
+
+    transition: 0.3s;
+    background-color: white;
+    opacity: 0;
+
+    display: flex;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+
+    &:hover {
+      height: 45%;
+      background-color: rgba(255, 255, 255, 0.6);
+      opacity: 1;
+    }
+  }
+}
+
+.list-style {
+  margin: 0 0 10px 5px;
+}
+
+.tag-title {
+  margin-left: 40px;
+}

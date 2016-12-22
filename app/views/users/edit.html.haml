@@ -1,0 +1,35 @@
+.left-content{style: "width: 50%;"}
+  %h2 Edit
+  = form_for(current_user) do |f|
+    .sign-up-wrapper
+      .row
+        .col-xs-6
+
+          .form-group.label-floating.form-width
+            = f.label :username, class: "control-label"
+            = f.text_field :username, autofocus: true, class: "form-control", id: "i5i"
+
+          .form_group.label-floating
+            = f.label :profile, class: "control-label"
+            = f.text_field :profile, autofocus: true,  class: "form-control", id: "i5i"
+
+
+        .col-xs-6
+          .user-image
+            %img#user_avatar.media-object{ "data-holder-rendered": "true", "data-src": "holder.js/64x64", src: "#{current_user.image}"}
+            .btn.btn-primary.btn-file
+              image upload
+              = f.file_field :image, id: "upload_avatar"
+
+    .form-group
+      = f.submit "update", class: "btn btn-primary"
+
+      = link_to 'logout', destroy_user_session_path, method: :delete, class: "btn btn-warning"
+
+:javascript
+  $(function(){
+    var user_avatar = $("#upload_avatar");
+    user_avatar.change(function(){
+      upload_image_user(this)
+    });
+  });

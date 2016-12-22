@@ -1,0 +1,15 @@
+- if user_signed_in?
+  - if post.favorite_user(current_user.id)
+    = link_to post_favorite_path(post.favorite_user(current_user.id), post_id: post.id), class: "link-to", method: :delete, remote: true do
+      = image_tag("heart-red.png", class: "heart-image")
+    %span.fav-count.japanese-font
+      #{post.favorites_count}favrites
+  - else
+    = link_to post_favorites_path(post_id: post.id), method: :post, remote: true do
+      = image_tag("heart.png", class: "heart-image")
+    %span.fav-count.japanese-font
+      #{post.favorites_count}favrites
+- else
+  = image_tag("heart.png", class: "heart-image")
+  %span.fav-count.japanese-font
+    #{post.favorites_count}favrites

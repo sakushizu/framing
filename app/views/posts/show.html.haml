@@ -1,0 +1,33 @@
+.post-wrapper.clearfix
+  .left-content
+    .post-text-box
+      %h4.post-title.japanese-font{style: "font-size:18px;"}
+        = @post.title
+        #favorite-button
+          = render partial: '/favorites/favorite', locals: { post: @post }
+      .username.japanese-font
+        = @post.user.username
+      .description.japanese-font
+        = @post.description
+      .tag.gray-small-text.japanese-font
+        = render 'posts/tag_list', tag_list: @post.label_list
+    .comments-wrapper
+      %h5.comment-title
+        Comments
+      .comments-box
+        %ul#comment-list
+          = render @post.comments
+    .search-box
+      = form_for [@post, Comment.new], remote: true do |f|
+        = f.text_field :text, id: 'comment-text', class: 'form-control', placeholder: "Write a Comment"
+  .right-content
+    = image_tag @post.image, class: "show-post-image"
+    - if user_signed_in? && @post.user_id == current_user.id
+      .more
+        %span= image_tag 'arrow_top.png'
+        %ul.more_list
+          %li
+            = link_to 'edit', edit_post_path(@post), method: :get, class: "japanese-font"
+          %li
+            = link_to 'destroy', "/posts/#{@post.id}", method: :delete, class: "japanese-font"
+

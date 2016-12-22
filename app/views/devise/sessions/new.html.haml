@@ -1,0 +1,23 @@
+.left-content{style: "width: 50%;"}
+  %h2 Login
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+
+    .form-group.label-floating
+      = f.label :email, class: "control-label"
+      = f.email_field :email, class: "form-control", id: "i5i"
+      %span.help-block Please enter a valid email address
+
+    .form-group.label-floating
+      = f.label :password, class: "control-label"
+      = f.password_field :password, autocomplete: "off", class: "form-control", id: "i5i"
+
+    - if devise_mapping.rememberable?
+      .checkbox
+        %label
+          = f.check_box :remember_me, type: "checkbox"
+          remember me
+
+    .form-group
+      = f.submit "log in", class: "btn btn-primary"
+    = render "devise/shared/links"
+

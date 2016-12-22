@@ -1,0 +1,8 @@
+<% if @comment.errors.any? %>
+  alert('<%= @comment.errors.full_messages.join('') %>')
+<% else %>
+  $("#comment-text").val("");
+  $('ul#comment-list').html(
+    '<%= j(render @post.comments) %>'
+  );
+<% end %>
