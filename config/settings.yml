@@ -1,0 +1,3 @@
+aws:
+  access_key_id: 'override this in settings.local.yml'
+  secret_access_key: :override this in settings.local.yml'
